@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Calendar
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+		<ion-fab>
+		  <ion-fab-button (click)="takePicture()">
+		    <ion-icon name="camera"></ion-icon>
+		  </ion-fab-button>
+		</ion-fab>
+
+		<ion-card>
+			<ion-input type="text"></ion-input>
+		</ion-card>
+		<img [src]="currentImage" *ngIf="currentImage">
+</ion-content>
