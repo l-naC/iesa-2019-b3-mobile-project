@@ -18,3 +18,4 @@
 - [Nolwenn Poilleux](https://github.com/nte-25)
 - [Olivier Chemla](https://github.com/olivech12)
 - [Abraham Ibo](https://github.com/abrahamibo)
+- [Jérémy Grosz](https://github.com/jeremygsz)
