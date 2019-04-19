@@ -3,7 +3,22 @@
     <ion-title>
       Contacts
     </ion-title>
+    <ion-searchbar (keyup)="onKeyUp($event)">
+      Tab Three
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <ion-list>
+
+    <ion-item *ngFor="let contact of contactsFound">
+      <h2>
+        {{contact?.displayName}}
+        <p *ngFor="let num of contact?.phoneNumbers">
+          {{num.value}}
+        </p>
+      </h2>
+    </ion-item>
+    </ion-list>
+</ion-content>

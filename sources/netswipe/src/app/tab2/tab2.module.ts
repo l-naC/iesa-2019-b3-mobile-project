@@ -4,6 +4,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
+import {Contacts} from '@ionic-native/contacts';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {Camera} from '@ionic-native/camera/ngx';
+
+
 
 @NgModule({
   imports: [
@@ -12,6 +18,9 @@ import { Tab2Page } from './tab2.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
-  declarations: [Tab2Page]
+  providers: [
+    Contacts,
+  ],
+    declarations: [Tab2Page],
 })
 export class Tab2PageModule {}

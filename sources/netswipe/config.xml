@@ -86,5 +86,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-contacts" spec="3.0.1" />
     <allow-navigation href="http://192.168.15.193:8100" sessionid="8e01efb9" />
 </widget>
