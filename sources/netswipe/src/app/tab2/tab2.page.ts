@@ -16,39 +16,39 @@ export class Tab2Page {
   contacttobefound: any;
 
   constructor(private contacts: Contacts) {
-    // this.search('');
+    this.searchCtc('');
     this.contacttobefound = '';
     this.contactsfound = [];
     this.getContact('');
   }
 
-  // searchBar(q) {
-  //   const option: IContactFindOptions = {
-  //     filter: q
-  //   };
-  //   const contact: Contact = this.contacts.create();
-  //   const nm = new ContactName(null, 'Smith', 'John');
-  //   contact.name = nm;
-  //   this.valuu = nm;
-  //   console.log(contact.name);
-  //   console.log(contact.name);
-  //   console.log(contact['name'] = nm);
-  //   console.log(contact.name);
-  //   console.log(contact['name']);
-  //   contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
-  //   // contact.save()
-  //   //     .then(
-  //   //     () => console.log('Contact saved!', contact),
-  //   //     (error: any) => console.error('Error saving contact.', error)
-  //   // );
-  //   console.log(this.contacts.find(this.ourtype, option));
-  //   console.log(this.contacts);
-  //   console.log(new ContactName(null, 'Smith', 'John'));
-  //   // this.contacts.find(this.ourtype, option).then((conts) => {
-  //   //   this.contactsFound = conts;
-  //   // });
-  //
-  // }
+  searchCtc(q) {
+    const option: IContactFindOptions = {
+      filter: q
+    };
+    //   const contact: Contact = this.contacts.create();
+    //   const nm = new ContactName(null, 'Smith', 'John');
+    //   contact.name = nm;
+    //   this.valuu = nm;
+    //   console.log(contact.name);
+    //   console.log(contact.name);
+    //   console.log(contact['name'] = nm);
+    //   console.log(contact.name);
+    //   console.log(contact['name']);
+    //   contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+    //   // contact.save()
+    //   //     .then(
+    //   //     () => console.log('Contact saved!', contact),
+    //   //     (error: any) => console.error('Error saving contact.', error)
+    //   // );
+    //   console.log(this.contacts.find(this.ourtype, option));
+    //   console.log(this.contacts);
+    //   console.log(new ContactName(null, 'Smith', 'John'));
+    this.contacts.find(this.ourtype, option).then((conts) => {
+      this.contactsFound = conts;
+    });
+    //
+  }
   getContact(val) {
     this.contacts.find(['*'], {filter: val, multiple: true}).then((contacts) => {
       this.contactsfound = contacts;

@@ -10,35 +10,34 @@
 </ion-header>
 
 <ion-content>
-  <!--  <ion-list>-->
+    <ion-list>
 
-  <!--  <ion-item *ngfor="let contact of contactsfound">-->
-  <!--    <h2>-->
-  <!--      {{contact?.displayName}}-->
-  <!--      <p *ngfor="let num of contact?.phoneNumbers">-->
-  <!--        {{num.value}}-->
-  <!--      </p>-->
-  <!--    </h2>-->
-  <!--  </ion-item>-->
-  <!--  </ion-list>-->
-  <p> {{valuu}}</p>
-  <ion-list-header>Recherche de contactes</ion-list-header>
-
-  <ion-item>
-    <ion-label floating class="placeholder">Entrez le nom que vous cherchez ici</ion-label>
-    <ion-input type="text" [(ngModel)]="contacttobefound"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <button block (click)="getContact(contacttobefound)">Rechercher</button>
-  </ion-item>
-
-  <ion-list>
-    <ion-item *ngFor="let item of contactsfound">
-      {{item.name.givenName}} {{item.name.familyName}}
+    <ion-item *ngfor="let contact of contactsfound">
+      <h2>
+        {{contact?.displayName}}
+        <p *ngfor="let num of contact?.phoneNumbers">
+          {{num.value}}
+        </p>
+      </h2>
     </ion-item>
-    <ion-item *ngIf="contactsfound.length == 0">
-      Aucun ne résultat ne correcpond à cette recherche
-    </ion-item>
-  </ion-list>
+    </ion-list>
+<!--  <ion-list-header>Recherche de contactes</ion-list-header>-->
+
+<!--  <ion-item>-->
+<!--    <ion-label floating class="placeholder">Entrez le nom que vous cherchez ici</ion-label>-->
+<!--    <ion-input type="text" [(ngModel)]="contacttobefound"></ion-input>-->
+<!--  </ion-item>-->
+
+<!--  <ion-item>-->
+<!--    <button block (click)="getContact(contacttobefound)">Rechercher</button>-->
+<!--  </ion-item>-->
+
+<!--  <ion-list>-->
+<!--    <ion-item *ngFor="let item of contactsfound">-->
+<!--      {{item.name.givenName}} {{item.name.familyName}}-->
+<!--    </ion-item>-->
+<!--    <ion-item *ngIf="contactsfound.length == 0">-->
+<!--      Aucun ne résultat ne correcpond à cette recherche-->
+<!--    </ion-item>-->
+<!--  </ion-list>-->
 </ion-content>
