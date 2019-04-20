@@ -7,14 +7,38 @@
 </ion-header>
 
 <ion-content>
-		<ion-fab>
-		  <ion-fab-button (click)="takePicture()">
-		    <ion-icon name="camera"></ion-icon>
-		  </ion-fab-button>
-		</ion-fab>
+	<ion-row>
+        <ion-col>
+            <ion-button full (click)="captureAudio()">
+            	<ion-icon name="microphone"></ion-icon>
+        	</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button full (click)="takePicture()">
+            	<ion-icon name="camera"></ion-icon>
+        	</ion-button>
+        </ion-col>
+        <ion-col>
+	      	<ion-button full (click)="captureVideo()">
+            	<ion-icon name="videocam"></ion-icon>
+        	</ion-button>
+	    </ion-col>
+	</ion-row>
+	<ion-row>
+        <ion-col>
+            <ion-input type="text" placeholder="Votre message"></ion-input>
+        </ion-col>
+        <ion-col>
+            <ion-button full (click)="addMessage()">Envoyer</ion-button>
+        </ion-col>
+    </ion-row>
 
-		<ion-card>
-			<ion-input type="text"></ion-input>
-		</ion-card>
-		<img [src]="currentImage" *ngIf="currentImage">
+    <ion-list>
+        <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
+            {{ file.name }}
+            <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+        </ion-item>
+    </ion-list>
+  	<video controls autoplay #myvideo></video>
+	<img [src]="currentImage" *ngIf="currentImage">
 </ion-content>
