@@ -18,6 +18,8 @@ import { File} from "@ionic-native/file/ngx";
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
