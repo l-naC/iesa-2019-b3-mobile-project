@@ -21,6 +21,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -35,6 +37,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
     MediaCapture,
     Media,
     File,
+    GoogleAnalytics,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
