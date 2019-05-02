@@ -18,11 +18,11 @@
         <ion-icon name="camera"></ion-icon>
       </ion-button>
     </ion-col>
-  <ion-col>
-    <ion-button (click)="getGeolocation()">
-      <ion-icon name="map"></ion-icon>
-    </ion-button>
-  </ion-col>
+    <ion-col>
+      <ion-button (click)="getGeolocation()">
+        <ion-icon name="map"></ion-icon>
+      </ion-button>
+    </ion-col>
     <!--- <ion-button (click)="watchLocation()">
       Watch Location Updates
     </ion-button>
@@ -30,6 +30,8 @@
       Stop Location Watch
     </ion-button>
    -->
+  </ion-row>
+
   <ion-row>
     <div *ngIf="geoLatitude">
       <p class="address-text">
@@ -44,26 +46,34 @@
         <br>Address : {{geoAddress }}
       </p>
     </div>
-
   </ion-row>
 
-	</ion-row>
-	<ion-row>
-    <ion-col>
-        <ion-input type="text" placeholder="Votre message"></ion-input>
-    </ion-col>
-    <ion-col>
-        <ion-button full (click)="addMessage()">Envoyer</ion-button>
-    </ion-col>
-  </ion-row>
+  <div>
+      <ion-row>
+        <ion-label stacked>À</ion-label>
+        <ion-input [(ngModel)]="to" type="text" placeholder="Saisisser l'intitulé du mail."></ion-input>
+      </ion-row>
+    <ion-row>
+      <ion-label stacked>Objet</ion-label>
+      <ion-input [(ngModel)]="subject" type="text" placeholder="Saisisser l'intitulé du mail."></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label stacked>Message</ion-label>
+      <ion-input [(ngModel)]="message" type="text" placeholder="Saisisser votre message."></ion-input>
+    </ion-row>
+    <ion-row>
+        <ion-button full (click)="sendEmail()">Envoyer</ion-button>
+    </ion-row>
+  </div>
+	
 
   
 
-    <ion-list>
-        <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
-            {{ file.name }}
-            <p>{{ file.size / 1000 / 1000 | number }} MB</p>
-        </ion-item>
-    </ion-list>
+  <ion-list>
+      <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
+          {{ file.name }}
+          <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+      </ion-item>
+  </ion-list>
 	<img [src]="currentImage" *ngIf="currentImage">
 </ion-content>

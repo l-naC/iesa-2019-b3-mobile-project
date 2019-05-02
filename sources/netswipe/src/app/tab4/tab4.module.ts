@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab4Page } from './tab4.page';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   imports: [
@@ -11,6 +12,9 @@ import { Tab4Page } from './tab4.page';
     CommonModule,
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab4Page }])
+  ],
+  providers: [
+    EmailComposer,
   ],
   declarations: [Tab4Page]
 })

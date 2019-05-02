@@ -23,6 +23,7 @@
     "@ionic-native/camera": "^5.4.0",
     "@ionic-native/contacts": "^5.4.0",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/email-composer": "^5.5.1",
     "@ionic-native/file": "^5.5.0",
     "@ionic-native/geolocation": "^5.5.1",
     "@ionic-native/google-analytics": "^5.5.1",
@@ -100,7 +101,8 @@
         "GMS_VERSION": "11.0.1"
       },
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-nativegeocoder": {}
+      "cordova-plugin-nativegeocoder": {},
+      "cordova-plugin-email-composer": {}
     },
     "platforms": [
       "ios",
