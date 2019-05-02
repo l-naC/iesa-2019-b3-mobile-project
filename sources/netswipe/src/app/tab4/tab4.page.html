@@ -8,30 +8,61 @@
 
 <ion-content>
 	<ion-row>
-        <ion-col>
-            <ion-button full (click)="captureAudio()">
-            	<ion-icon name="microphone"></ion-icon>
-        	</ion-button>
-        </ion-col>
-        <ion-col>
-            <ion-button full (click)="takePicture()">
-            	<ion-icon name="camera"></ion-icon>
-        	</ion-button>
-        </ion-col>
-        <ion-col>
-	      	<ion-button full (click)="captureVideo()">
-            	<ion-icon name="videocam"></ion-icon>
-        	</ion-button>
-	    </ion-col>
+    <ion-col>
+    <ion-button full (click)="captureAudio()">
+      <ion-icon name="microphone"></ion-icon>
+    </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button full (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button full (click)="captureVideo()">
+        <ion-icon name="videocam"></ion-icon>
+      </ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button (click)="getGeolocation()">
+      <ion-icon name="map"></ion-icon>
+    </ion-button>
+  </ion-col>
+    <!--- <ion-button (click)="watchLocation()">
+      Watch Location Updates
+    </ion-button>
+    <ion-button (click)="stopLocationWatch()">
+      Stop Location Watch
+    </ion-button>
+   -->
+  <ion-row>
+    <div *ngIf="geoLatitude">
+      <p class="address-text">
+   
+        <span class="watch-text" *ngIf="isWatching; else notWatching">
+          Watching Location
+        </span>
+        <ng-template #notWatching>
+          Location Watch Stopped
+        </ng-template>
+   
+        <br>Address : {{geoAddress }}
+      </p>
+    </div>
+
+  </ion-row>
+
 	</ion-row>
 	<ion-row>
-        <ion-col>
-            <ion-input type="text" placeholder="Votre message"></ion-input>
-        </ion-col>
-        <ion-col>
-            <ion-button full (click)="addMessage()">Envoyer</ion-button>
-        </ion-col>
-    </ion-row>
+    <ion-col>
+        <ion-input type="text" placeholder="Votre message"></ion-input>
+    </ion-col>
+    <ion-col>
+        <ion-button full (click)="addMessage()">Envoyer</ion-button>
+    </ion-col>
+  </ion-row>
+
+  
 
     <ion-list>
         <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
