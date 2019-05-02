@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Contacts } from '@ionic-native/contacts/ngx';
 
+import { Badge } from '@ionic-native/badge/ngx';
+
+
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
@@ -30,6 +33,7 @@ import { IonicStorageModule } from '@ionic/storage';
     MediaCapture,
     Media,
     File,
+    Badge,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
