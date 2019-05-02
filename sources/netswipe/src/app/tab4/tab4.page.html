@@ -23,31 +23,20 @@
         <ion-icon name="videocam"></ion-icon>
       </ion-button>
   </ion-col>
-	</ion-row>
-	<ion-row>
-    <ion-col>
-        <ion-input type="text" placeholder="Votre message"></ion-input>
-    </ion-col>
-    <ion-col>
-        <ion-button full (click)="addMessage()">Envoyer</ion-button>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
+  <ion-col>
     <ion-button (click)="getGeolocation()">
-      Get Location
+      <ion-icon name="map"></ion-icon>
     </ion-button>
-    <ion-button (click)="watchLocation()">
+  </ion-col>
+    <!--- <ion-button (click)="watchLocation()">
       Watch Location Updates
     </ion-button>
     <ion-button (click)="stopLocationWatch()">
       Stop Location Watch
     </ion-button>
-   
+   -->
+  <ion-row>
     <div *ngIf="geoLatitude">
-      <p>Latitude : {{geoLatitude}}</p>
-      <p>Longitude : {{geoLongitude}}</p>
-      <p>Accuracy : {{geoAccuracy}}</p>
       <p class="address-text">
    
         <span class="watch-text" *ngIf="isWatching; else notWatching">
@@ -60,8 +49,20 @@
         <br>Address : {{geoAddress }}
       </p>
     </div>
+
   </ion-row>
 
+	</ion-row>
+	<ion-row>
+    <ion-col>
+        <ion-input type="text" placeholder="Votre message"></ion-input>
+    </ion-col>
+    <ion-col>
+        <ion-button full (click)="addMessage()">Envoyer</ion-button>
+    </ion-col>
+  </ion-row>
+
+  
 
     <ion-list>
         <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
