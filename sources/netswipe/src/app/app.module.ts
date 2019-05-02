@@ -32,6 +32,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
     MediaCapture,
     Media,
     File,
+    GoogleAnalytics,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
