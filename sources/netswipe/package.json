@@ -98,7 +98,7 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-google-analytics": {
         "GMS_VERSION": "11.0.1"
-      }
+      },
       "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {}
     },
