@@ -2,14 +2,15 @@
 
 # NetSwipe (Application)
 
-![npm](https://img.shields.io/badge/Version-1.3-blue.svg)
+![npm](https://img.shields.io/badge/Version-1.4-blue.svg)
 
-## Pitch :
+## Pitch
 
  Escroc dans l’âme, vous avez l’habitude de mettre des alarmes pour envoyer des messages à des heures bien définies. L’objectif ? Piéger et frustrer votre entourage.
  Et si maintenant on vous disait qu’une application vous permettait de programmer ces messages ?
 
 ### Nom des co-équipiers
+
 - [Léna Clavier](https://github.com/l-naC)
 - [Nolwenn Poilleux](https://github.com/nute-25)
 - [Olivier Chemla](https://github.com/olivech12)
@@ -18,26 +19,28 @@
 
 ## How to install & run
 
-Après avoir cloné le projet :
+Après avoir cloné le projet ouvrez votre terminal :
 
-- Dans le terminale mettre la commande suivante pour pouvoir mettre à jour les packages
+Placez vous dans le dossier répértoire `source` du projet.
 
-```shell
+```bash
+cd ./sources/netswipe
+```
+
+Entrez la commande `npm install` afin d'installer les dépedances nécessaires.
+
+```bash
 npm install
 ```
 
-- Ensuite se placer dans le dossier de votre projet ./sources/netswipe 
+La commande suivante permettra de tester le projet dans votre navigateur.
 
-- Puis effectuer la commande suivante dans le terminale qui ouvrira le projet dans ton navigateur.:
-
-```shell
+```bash
 ionic serve
 ```
 
-Qui ouvrira le projet dans ton navigateur.
+Afin de lancer le projet avec un device ou un emulator il suffit de faire la commande suivante dans le terminale en ramplacant platform par `android` ou `ios`
 
-- Afin de lancer le projet avec un device ou un emulator il suffit de faire la commande suivante dans le terminale en ramplacant platform par android ou ios
-
-```shell
+```bash
 ionic serve run platform -l
 ```
