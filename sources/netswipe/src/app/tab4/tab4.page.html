@@ -18,11 +18,6 @@
         <ion-icon name="camera"></ion-icon>
       </ion-button>
     </ion-col>
-    <ion-col>
-      <ion-button full (click)="captureVideo()">
-        <ion-icon name="videocam"></ion-icon>
-      </ion-button>
-  </ion-col>
   <ion-col>
     <ion-button (click)="getGeolocation()">
       <ion-icon name="map"></ion-icon>
@@ -42,9 +37,9 @@
         <span class="watch-text" *ngIf="isWatching; else notWatching">
           Watching Location
         </span>
-        <ng-template #notWatching>
+       <!--  <ng-template #notWatching>
           Location Watch Stopped
-        </ng-template>
+        </ng-template> -->
    
         <br>Address : {{geoAddress }}
       </p>
@@ -70,6 +65,5 @@
             <p>{{ file.size / 1000 / 1000 | number }} MB</p>
         </ion-item>
     </ion-list>
-  	<video controls autoplay #myvideo></video>
 	<img [src]="currentImage" *ngIf="currentImage">
 </ion-content>
