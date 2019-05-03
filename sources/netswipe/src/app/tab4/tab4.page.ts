@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -23,6 +23,8 @@ export class Tab4Page{
   to = '';
   subject = '';
   message = '';
+
+  trackMail = false;
 
   geoLatitude: number;
   geoLongitude: number;
@@ -52,7 +54,8 @@ export class Tab4Page{
     private media: Media,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
-    private emailComposer: EmailComposer
+    private emailComposer: EmailComposer,
+    private ga: GoogleAnalytics
   ){
   }
 
@@ -211,5 +214,10 @@ export class Tab4Page{
      
      // Send a text message using default options
      this.emailComposer.open(email);
+
+    this.ga.trackEvent("form", "submit", "Message programmed").then(() => {
+     this.trackMail = true;
+     console.log("event tracking");
+    });
   }
 }
