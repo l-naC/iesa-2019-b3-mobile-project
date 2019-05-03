@@ -15,9 +15,10 @@
     <ion-item *ngFor="let contact of contactsFound">
       <h2>
         {{contact?.displayName}}
-        <p *ngFor="let num of contact?.phoneNumbers">
-          {{num.value}}
-        </p>
+          <br>
+          <div *ngIf="contact?.phoneNumbers">
+              {{ contact?.phoneNumbers[0].value }}
+          </div>
       </h2>
     </ion-item>
     </ion-list>
