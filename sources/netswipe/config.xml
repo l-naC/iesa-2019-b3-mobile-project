@@ -3,7 +3,7 @@
     <name>NETSWIPE</name>
     <description>Schedule message</description>
     <author email="contact@netswipe.fr" href="https://github.com/l-naC/iesa-2019-b3-mobile-project">NETSWIPE Team</author>
-    <content original-src="index.html" src="http://192.168.43.227:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -78,6 +78,15 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+         <string>You can take photos</string>
+        </config-file>
+        <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
+            <string>Blink uses your microphone to make message.</string>
+        </config-file>
+        <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
+            <string>Need access to contacts</string>
+        </edit-config>
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
