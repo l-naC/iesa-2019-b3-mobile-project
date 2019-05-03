@@ -27,6 +27,20 @@ Placez vous dans le dossier répértoire `source` du projet.
 cd ./sources/netswipe
 ```
 
+Verifier que ionic et cordova soit installé
+
+```bash
+ionic -v
+cordova -v
+```
+
+Si ce n'est pas le cas alors il le faut
+
+```bash
+npm install -g ionic
+npm install -g cordova
+```
+
 Entrez la commande `npm install` afin d'installer les dépedances nécessaires.
 
 ```bash
@@ -39,8 +53,20 @@ La commande suivante permettra de tester le projet dans votre navigateur.
 ionic serve
 ```
 
-Afin de lancer le projet avec un device ou un emulator il suffit de faire la commande suivante dans le terminale en ramplacant platform par `android` ou `ios`
+Ajouter la platforme android
 
 ```bash
-ionic serve run platform -l
+ionic cordova platform add android
+```
+
+Ajouter la platforme ios
+
+```bash
+ionic cordova platform add ios
+```
+
+Afin de lancer le projet avec un device ou un emulator il suffit de faire la commande suivante dans le terminale en ramplacant 'platformes' par `android` ou `ios`
+
+```bash
+ionic cordova run 'platformes' -l
 ```

@@ -48,23 +48,29 @@
     </div>
   </ion-row>
 
-  <div>
+
+
+  <form>
       <ion-row>
-        <ion-label stacked>À</ion-label>
-        <ion-input [(ngModel)]="to" type="text" placeholder="Saisisser l'intitulé du mail."></ion-input>
+        <ion-col><ion-label stacked>To</ion-label></ion-col>
+        <ion-col><ion-input [(ngModel)]="to" type="text" name="to" placeholder="To."></ion-input></ion-col>
       </ion-row>
     <ion-row>
-      <ion-label stacked>Objet</ion-label>
-      <ion-input [(ngModel)]="subject" type="text" placeholder="Saisisser l'intitulé du mail."></ion-input>
+      <ion-col><ion-label stacked>Subject</ion-label></ion-col>
+      <ion-col><ion-input [(ngModel)]="subject" type="text" name="subject" placeholder="Type your subject."></ion-input></ion-col>
     </ion-row>
     <ion-row>
-      <ion-label stacked>Message</ion-label>
-      <ion-input [(ngModel)]="message" type="text" placeholder="Saisisser votre message."></ion-input>
+      <ion-col><ion-label stacked>Message</ion-label></ion-col>
+      <ion-col></ion-col>
     </ion-row>
     <ion-row>
-        <ion-button full (click)="sendEmail()">Envoyer</ion-button>
+      <ion-textarea [(ngModel)]="message" name="message" placeholder="Type your message." clearOnEdit="true"></ion-textarea>
     </ion-row>
-  </div>
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col><ion-button full (click)="sendEmail()">Send</ion-button></ion-col>
+    </ion-row>
+  </form>
 	
 
   
