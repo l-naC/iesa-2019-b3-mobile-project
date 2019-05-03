@@ -35,7 +35,7 @@
     "@ionic/angular": "^4.1.0",
     "@ionic/storage": "^2.2.0",
     "android-versions": "^1.4.0",
-    "cordova-android": "^8.0.0",
+    "cordova-android": "8.0.0",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-contacts": "3.0.1",
@@ -105,8 +105,8 @@
       "cordova-plugin-email-composer": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
