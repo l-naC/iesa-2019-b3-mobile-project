@@ -41,11 +41,14 @@
 
 
   <ion-row>
+    <ion-item>
+      <p>{{ smsLog }}</p>
+    </ion-item>
     <ion-col>
       <ion-input type="text" placeholder="Votre message"></ion-input>
     </ion-col>
     <ion-col>
-      <ion-button full (click)="addMessage()">Envoyer</ion-button>
+      <ion-button full (click)="sendSMS()">Envoyer</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>

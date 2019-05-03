@@ -15,8 +15,12 @@ import { Contacts } from '@ionic-native/contacts/ngx';
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
+import { SMS } from '@ionic-native/sms/ngx';
+
 
 import { IonicStorageModule } from '@ionic/storage';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +34,8 @@ import { IonicStorageModule } from '@ionic/storage';
     MediaCapture,
     Media,
     File,
+    SMS,
+    AndroidPermissions,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]

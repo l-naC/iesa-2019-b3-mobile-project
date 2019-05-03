@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { SMS } from '@ionic-native/sms/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { SMS } from '@ionic-native/sms/ngx';
   ],
   providers : [
     SMS,
+    AndroidPermissions
   ],
   declarations: [Tab1Page]
 })
