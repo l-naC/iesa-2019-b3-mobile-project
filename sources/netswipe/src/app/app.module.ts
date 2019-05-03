@@ -25,6 +25,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,6 +43,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
     File,
     Badge,
     GoogleAnalytics,
+    ScreenOrientation,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
