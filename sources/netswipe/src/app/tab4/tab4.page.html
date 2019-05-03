@@ -81,5 +81,9 @@
           <p>{{ file.size / 1000 / 1000 | number }} MB</p>
       </ion-item>
   </ion-list>
+  <ion-row>
+    <ion-button (click)="lockScreenOrientation()">Lock Orientation</ion-button>
+    <ion-button (click)="unlockScreenOrientation()">Unlock Orientation</ion-button>
+  </ion-row>
 	<img [src]="currentImage" *ngIf="currentImage">
 </ion-content>

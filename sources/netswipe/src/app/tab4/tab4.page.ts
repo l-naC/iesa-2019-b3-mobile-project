@@ -10,6 +10,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -55,7 +56,8 @@ export class Tab4Page{
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
     private emailComposer: EmailComposer,
-    private ga: GoogleAnalytics
+    private ga: GoogleAnalytics,
+    private screenOrientation: ScreenOrientation
   ){
   }
 
@@ -219,5 +221,17 @@ export class Tab4Page{
      this.trackMail = true;
      console.log("event tracking");
     });
+  }
+
+  async lockScreenOrientation() {
+    try{
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    } catch{
+      console.error("error lock");
+    }
+  }
+
+  unlockScreenOrientation() {
+    this.screenOrientation.unlock();
   }
 }
