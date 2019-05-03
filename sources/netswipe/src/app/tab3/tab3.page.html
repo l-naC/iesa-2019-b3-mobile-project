@@ -7,5 +7,11 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>Pending Messages</ion-label>
+    <ion-badge slot="end" color="danger">?</ion-badge>
+  </ion-item>
+  <ion-button expand="block" color="danger" (click)="this.badge.set(10)">Set badge number to 10</ion-button>
+  <ion-button expand="block" color="success" (click)="this.badge.increase(1)">Increase 1</ion-button>
+  <ion-button expand="block" color="warning" (click)="this.badge.clear()">Reset badge number</ion-button>
 </ion-content>

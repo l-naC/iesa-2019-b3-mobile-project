@@ -12,15 +12,20 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Contacts } from '@ionic-native/contacts/ngx';
 
+import { Badge } from '@ionic-native/badge/ngx';
+
+
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
-import { SMS } from '@ionic-native/sms/ngx';
-
 
 import { IonicStorageModule } from '@ionic/storage';
-import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,11 +36,14 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     SplashScreen,
     Camera,
     Contacts,
+    Geolocation,
+    NativeGeocoder,
     MediaCapture,
     Media,
     File,
-    SMS,
-    AndroidPermissions,
+    Badge,
+    GoogleAnalytics,
+    ScreenOrientation,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
