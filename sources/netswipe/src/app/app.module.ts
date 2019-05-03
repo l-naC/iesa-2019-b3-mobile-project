@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Contacts } from '@ionic-native/contacts/ngx';
 
+import { Badge } from '@ionic-native/badge/ngx';
+
+
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
@@ -38,6 +41,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     MediaCapture,
     Media,
     File,
+    Badge,
     GoogleAnalytics,
     ScreenOrientation,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
