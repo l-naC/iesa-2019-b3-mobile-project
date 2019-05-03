@@ -21,6 +21,11 @@ import { File} from "@ionic-native/file/ngx";
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,10 +35,13 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     Camera,
     Contacts,
+    Geolocation,
+    NativeGeocoder,
     MediaCapture,
     Media,
     File,
     Badge,
+    GoogleAnalytics,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
