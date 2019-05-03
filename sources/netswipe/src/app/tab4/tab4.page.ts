@@ -8,7 +8,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -18,6 +19,12 @@ const MEDIA_FILES_KEY = 'mediaFiles';
   styleUrls: ['tab4.page.scss']
 })
 export class Tab4Page{
+
+  to = '';
+  subject = '';
+  message = '';
+
+  trackMail = false;
 
   geoLatitude: number;
   geoLongitude: number;
@@ -46,7 +53,9 @@ export class Tab4Page{
     private file: File,
     private media: Media,
     private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
+    private nativeGeocoder: NativeGeocoder,
+    private emailComposer: EmailComposer,
+    private ga: GoogleAnalytics
   ){
   }
 
@@ -178,5 +187,37 @@ export class Tab4Page{
       }
       this.mediaFiles = this.mediaFiles.concat(files);
     })
-	}
+  }
+  
+
+  sendEmail() {
+    this.emailComposer.isAvailable().then((available: boolean) =>{
+      if(available) {
+        //Now we know we can send
+      }
+     });
+     
+     let email = {
+       to: this.to,
+       cc: 'erika@mustermann.de',
+       bcc: ['john@doe.com', 'jane@doe.com'],
+       attachments: [
+         'file://img/logo.png',
+         'res://icon.png',
+         'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+         'file://README.pdf'
+       ],
+       subject: this.subject,
+       body: this.message,
+       isHtml: true
+     }
+     
+     // Send a text message using default options
+     this.emailComposer.open(email);
+
+    this.ga.trackEvent("form", "submit", "Message programmed").then(() => {
+     this.trackMail = true;
+     console.log("event tracking");
+    });
+  }
 }
