@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-
 declare var SMS: any;
 
 @Component({
@@ -139,7 +138,7 @@ export class Tab1Page {
                     then (( successs ) => {
                             this.ReadSMSList (options);
                         try {
-                            SMS.send('683675983', 'Hello world!', options);
+                            SMS.sendSMS('683675983', 'Hello world!', options);
                             console.log('sent');
                             // this.mostrarToast('mensage sent');
                         } catch (e) {
@@ -158,8 +157,56 @@ export class Tab1Page {
                 then ((success) => {
                         this.ReadSMSList (options);
                     },
-                    (err) => {
-                        console.error (err);
+                    (erreur) => {
+                        console.error (erreur);
+                    });
+            });
+    }
+    sendmsg(){
+        this.androidPermissions.checkPermission (this.androidPermissions.PERMISSION.SEND_SMS) .then (
+            success => {
+                if (! success.hasPermission) {
+                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.SEND_SMS).
+                    then (( successs ) => {
+                            console.log(successs);
+                            SMS.sendSMS('650024063', 'Hello world!', successss => {
+                                    console.log(successss);
+                                },
+                                err => {
+                                    console.log(err);
+                                });
+                            SMS.sendSMS('668210916', 'Hello world!', successss => {
+                                    console.log(successss);
+                                },
+                                err => {
+                                    console.log(err);
+                                });
+                        },
+                        (err) => {
+                            console.error (err);
+                        });
+                } else {
+                    SMS.sendSMS('650024063', 'Hello world!', successss => {
+                            console.log(successss);
+                        },
+                        err => {
+                            console.log(err);
+                        });
+                    SMS.sendSMS('668210916', 'Hello world!', successss => {
+                            console.log(successss);
+                        },
+                        err => {
+                            console.log(err);
+                        });
+                }
+            },
+            err => {
+                this.androidPermissions.requestPermission (this.androidPermissions.PERMISSION.SEND_SMS).
+                then ((success) => {
+                        console.log(success);
+                    },
+                    (erreur) => {
+                        console.error (erreur);
                     });
             });
     }
