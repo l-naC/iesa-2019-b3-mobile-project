@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
-import { SMS } from '@ionic-native/sms/ngx';
+// import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 
@@ -17,7 +17,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
   providers : [
-    SMS,
+    // SMS,
     AndroidPermissions
   ],
   declarations: [Tab1Page]

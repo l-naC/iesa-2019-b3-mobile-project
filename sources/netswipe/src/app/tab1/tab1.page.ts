@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
+declare var SMS: any;
 
 @Component({
     selector: 'app-tab1',
@@ -13,8 +13,8 @@ export class Tab1Page {
     phoneNumber: number;
     txtMsg: string;
 
-    constructor(private sms: SMS,
-                private androidPermissions: AndroidPermissions
+    constructor(
+        private androidPermissions: AndroidPermissions
     ) { }
 
     addPermission() {
@@ -30,7 +30,7 @@ export class Tab1Page {
                         console.log(erre);
                     }
 
-                );},
+                ); },
             (err) => {
                 this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.SMS).then(
                     (result) => {this.smsLog = 'Has permission?' + result.hasPermission; },
@@ -55,7 +55,7 @@ export class Tab1Page {
             }
         };
         // Send a text message using default options
-        this.sms.send('683675983', 'Hello world!', options).then((result) => {
+        SMS.send('683675983', 'Hello world!', options).then((result) => {
             this.smsLog = 'Message sent successfully';
         }, (err) => {
             this.smsLog = 'Message sent successfully' + err;
@@ -101,7 +101,7 @@ export class Tab1Page {
             }
         };
         try {
-            await this.sms.send('683675983', 'Hello world!', options);
+            await SMS.send('683675983', 'Hello world!', options);
             console.log('sent');
             // this.mostrarToast('mensage sent');
         } catch (e) {
@@ -128,6 +128,49 @@ export class Tab1Page {
                 err => console.log(err)
             );
             // this.mostrarToast(e);
+        }
+    }
+    addMessage2() {
+        const options = {box: ' inbox ', indexFrom: 0, maxCount: 10};
+        this.androidPermissions.checkPermission (this.androidPermissions.PERMISSION.READ_SMS) .then (
+            success => {
+                if (! success.hasPermission) {
+                    this.androidPermissions.requestPermission (this.androidPermissions.PERMISSION.READ_SMS).
+                    then (( successs ) => {
+                            this.ReadSMSList (options);
+                        try {
+                            SMS.send('683675983', 'Hello world!', options);
+                            console.log('sent');
+                            // this.mostrarToast('mensage sent');
+                        } catch (e) {
+                            console.log(JSON.stringify(e));
+                            console.log(e);
+                        }
+                            console.log(successs);
+                        },
+                        (err) => {
+                            console.error (err);
+                        });
+                }
+            },
+            err => {
+                this.androidPermissions.requestPermission (this.androidPermissions.PERMISSION.READ_SMS).
+                then ((success) => {
+                        this.ReadSMSList (options);
+                    },
+                    (err) => {
+                        console.error (err);
+                    });
+            });
+    }
+    ReadSMSList (options) {
+        if (SMS) {
+            SMS.listSMS (options, (ListSms) => {
+                    console.log (ListSms);
+                },
+                error => {
+                    alert (JSON.stringify (error));
+                });
         }
     }
 }

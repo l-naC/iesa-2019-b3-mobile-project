@@ -97,4 +97,5 @@
     <plugin name="cordova-plugin-contacts" spec="3.0.1" />
     <allow-navigation href="http://192.168.15.193:8100" sessionid="8e01efb9" />
     <allow-navigation href="http://192.168.43.227:8100" sessionid="1a6ee6c3" />
+    <allow-navigation href="http://192.168.15.196:8100" sessionid="24776dbe" />
 </widget>

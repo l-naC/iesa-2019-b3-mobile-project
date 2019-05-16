@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
+    "@ionic-native/android-permissions": "^5.5.1",
     "@ionic-native/badge": "^5.5.1",
     "@ionic-native/camera": "^5.4.0",
     "@ionic-native/contacts": "^5.4.0",
@@ -39,6 +40,7 @@
     "android-versions": "^1.4.0",
     "cordova-android": "8.0.0",
     "cordova-ios": "5.0.1",
+    "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-contacts": "3.0.1",
@@ -47,6 +49,7 @@
     "cordova-plugin-media": "5.0.2",
     "cordova-plugin-media-capture": "3.0.2",
     "cordova-plugin-screen-orientation": "3.0.1",
+    "cordova-plugin-sms": "^1.0.5",
     "cordova-sqlite-storage": "3.2.0",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "4.2.2",
@@ -111,7 +114,9 @@
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-email-composer": {},
       "cordova-plugin-badge": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-sms": {}
     },
     "platforms": [
       "ios",
