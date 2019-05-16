@@ -78,6 +78,7 @@ export class Tab4Page{
     this.nativeGeocoder.reverseGeocode(latitude, longitude, this.geoencoderOptions)
     .then((result: any[]) => {
       this.geoAddress = this.generateAddress(result[0]);
+      console.log(this.geoAddress);
     })
     .catch((error: any) => {
       alert('Error getting location'+ JSON.stringify(error));
