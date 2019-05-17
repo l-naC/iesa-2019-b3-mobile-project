@@ -11,4 +11,24 @@ export class Tab3Page{
 
   constructor(private badge: Badge) { }
 
+  eventSource = [];
+
+  calendar = {
+    mode: 'month',
+    currentDate: new Date()
+  }
+
+  onEventSelected = (event) => {
+    console.log(event.title);
+};
+
+  onTitleChanged(){
+    
+  }
+
+  onTimeSelected(){
+    
+  }
+
+
 }
