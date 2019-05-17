@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
     "@ionic-native/badge": "^5.5.1",
+    "@ionic-native/barcode-scanner": "^5.6.0",
     "@ionic-native/camera": "^5.4.0",
     "@ionic-native/contacts": "^5.4.0",
     "@ionic-native/core": "^5.0.0",
@@ -50,6 +51,7 @@
     "cordova-sqlite-storage": "3.2.0",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "4.2.2",
+    "phonegap-plugin-barcodescanner": "8.0.1",
     "properties-parser": "^0.3.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
@@ -111,7 +113,10 @@
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-email-composer": {},
       "cordova-plugin-badge": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
       "ios",
