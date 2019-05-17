@@ -7,6 +7,18 @@
 </ion-header>
 
 <ion-content>
+  <calendar
+    [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (EventSelected)="onEventSelected($event)"
+    (TitleChanged)="onViewTitleChanged($event)"
+    (TimeSelected)="onEventSelected($event)"
+    startHour="9"
+    endHour="20"
+    step="30"
+    startingDayWeek="1">
+  </calendar>
   <ion-item>
     <ion-label>Pending Messages</ion-label>
     <ion-badge slot="end" color="danger">?</ion-badge>

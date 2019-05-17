@@ -26,11 +26,23 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { NgCalendarModule } from 'ionic2-calendar';
+
+import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    NgCalendarModule,
+      FormsModule
+
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -40,6 +52,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     NativeGeocoder,
     MediaCapture,
     Media,
+    BarcodeScanner,
     File,
     Badge,
     GoogleAnalytics,

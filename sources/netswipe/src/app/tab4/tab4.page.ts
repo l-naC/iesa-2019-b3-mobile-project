@@ -11,6 +11,10 @@ import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geoco
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import {
+  BarcodeScannerOptions,
+  BarcodeScanner
+} from "@ionic-native/barcode-scanner/ngx";
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -20,6 +24,9 @@ const MEDIA_FILES_KEY = 'mediaFiles';
   styleUrls: ['tab4.page.scss']
 })
 export class Tab4Page{
+  encodeData: any;
+  scannedData: {};
+  barcodeScannerOptions: BarcodeScannerOptions;
 
   to = '';
   subject = '';
@@ -57,9 +64,46 @@ export class Tab4Page{
     private nativeGeocoder: NativeGeocoder,
     private emailComposer: EmailComposer,
     private ga: GoogleAnalytics,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private barcodeScanner: BarcodeScanner
   ){
+    this.encodeData = "https://www.FreakyJolly.com";
+    //Options
+    this.barcodeScannerOptions = {
+      showTorchButton: true,
+      showFlipCameraButton: true
+    };
   }
+
+  //-------------------QR code scan---------------------------------
+  scanCode() {
+    this.barcodeScanner
+      .scan()
+      .then(barcodeData => {
+        alert("Barcode data " + JSON.stringify(barcodeData));
+        this.scannedData = barcodeData;
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
+  }
+ 
+  encodedText() {
+    this.barcodeScanner
+      .encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData)
+      .then(
+        encodedData => {
+          console.log(encodedData);
+          this.encodeData = encodedData;
+        },
+        err => {
+          console.log("Error occured : " + err);
+        }
+      );
+  }
+  
+  //-------------------END => QR code scan---------------------------------
+
 
   //Get current coordinates of device
   getGeolocation(){
