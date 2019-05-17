@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+// import { Globalization } from '@ionic-native/globalization/ngx';
+
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private ga: GoogleAnalytics,
+    // private globalization: Globalization
   ) {
     this.initializeApp();
   }

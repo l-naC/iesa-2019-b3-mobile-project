@@ -19,6 +19,10 @@ import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { IonicStorageModule } from '@ionic/storage';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -26,11 +30,26 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import {Globalization} from '@ionic-native/globalization/ngx';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -44,6 +63,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     Badge,
     GoogleAnalytics,
     ScreenOrientation,
+    Globalization,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
