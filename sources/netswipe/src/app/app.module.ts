@@ -28,7 +28,8 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { NgCalendarModule } from 'ionic2-calendar';
 
-
+import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +39,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
-    NgCalendarModule
+    NgCalendarModule,
+      FormsModule
 
   ],
   providers: [
@@ -50,6 +52,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
     NativeGeocoder,
     MediaCapture,
     Media,
+    BarcodeScanner,
     File,
     Badge,
     GoogleAnalytics,
