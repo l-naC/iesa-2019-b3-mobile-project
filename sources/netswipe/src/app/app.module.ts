@@ -35,12 +35,11 @@ import { NgCalendarModule } from 'ionic2-calendar';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(), 
+    IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
     NgCalendarModule
 
-    
   ],
   providers: [
     StatusBar,
