@@ -26,11 +26,22 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { NgCalendarModule } from 'ionic2-calendar';
+
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    NgCalendarModule
+
+    
+  ],
   providers: [
     StatusBar,
     SplashScreen,
