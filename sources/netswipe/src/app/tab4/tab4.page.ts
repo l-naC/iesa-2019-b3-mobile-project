@@ -29,6 +29,8 @@ export class Tab4Page{
   barcodeScannerOptions: BarcodeScannerOptions;
 
   to = '';
+  cc = '';
+  bcc = '';
   subject = '';
   message = '';
 
@@ -245,8 +247,8 @@ export class Tab4Page{
      
      let email = {
        to: this.to,
-       cc: 'erika@mustermann.de',
-       bcc: ['john@doe.com', 'jane@doe.com'],
+       cc: this.cc,
+       bcc: this.bcc,
        attachments: [
          'file://img/logo.png',
          'res://icon.png',
