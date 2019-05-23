@@ -10,63 +10,64 @@
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <div *ngIf="geoLatitude">
-      <p class="address-text">
-        <span class="watch-text" *ngIf="isWatching; else notWatching">
-          Watching Location
-        </span>
-        <!--  <ng-template #notWatching>
+  <div class="boxes-container">
+    <ion-row>
+      <div *ngIf="geoLatitude">
+        <p class="address-text">
+          <span class="watch-text" *ngIf="isWatching; else notWatching">
+            Watching Location
+          </span>
+          <!--  <ng-template #notWatching>
           Location Watch Stopped
         </ng-template> -->
 
-        <br />Address : {{ geoAddress }}
-      </p>
-    </div>
-  </ion-row>
+          <br />Address : {{ geoAddress }}
+        </p>
+      </div>
+    </ion-row>
 
-  <form>
-    <!-- Forms fields -->
-    <ion-item>
-      <ion-label position="stacked">Contact</ion-label>
-      <ion-input
-        [(ngModel)]="to"
-        mode="ios"
-        type="text"
-        name="to"
-        placeholder="Kayne West"
-        required="true"
-      ></ion-input>
-    </ion-item>
+    <form>
+      <!-- Forms fields -->
+      <ion-item>
+        <ion-label position="stacked">Contact</ion-label>
+        <ion-input
+          [(ngModel)]="to"
+          mode="ios"
+          type="text"
+          name="to"
+          placeholder="Kayne West"
+          required="true"
+        ></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Subject</ion-label>
-      <ion-input
-        [(ngModel)]="subject"
-        mode="ios"
-        size="4"
-        type="text"
-        name="subject"
-        placeholder="I'm in love with you"
-        required="true"
-      ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Subject</ion-label>
+        <ion-input
+          [(ngModel)]="subject"
+          mode="ios"
+          size="4"
+          type="text"
+          name="subject"
+          placeholder="I'm in love with you"
+          required="true"
+        ></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Message</ion-label>
-      <ion-textarea
-        [(ngModel)]="message"
-        clearOnEdit="true"
-        mode="ios"
-        name="message"
-        rows="4"
-        placeholder="I just want you to know. You are my crush"
-        required="true"
-      ></ion-textarea>
-    </ion-item>
-  </form>
+      <ion-item>
+        <ion-label position="stacked">Message</ion-label>
+        <ion-textarea
+          [(ngModel)]="message"
+          clearOnEdit="true"
+          mode="ios"
+          name="message"
+          rows="4"
+          placeholder="I just want you to know. You are my crush"
+          required="true"
+        ></ion-textarea>
+      </ion-item>
+    </form>
 
-  <ion-list>
+    <!-- <ion-list>
     <ion-item
       *ngFor="let file of mediaFiles"
       tappable
@@ -105,7 +106,8 @@
 
   <ion-button (click)="encodedText()">
     Create QR
-  </ion-button>
+  </ion-button> -->
+  </div>
 </ion-content>
 
 <ion-footer>
@@ -140,19 +142,22 @@
         ><ion-icon name="map"></ion-icon
       ></ion-button>
     </ion-col>
-  <!-- Submit Button -->
+    <!-- Submit Button -->
     <ion-col>
-      <ion-button
-        expand="block"
-        (click)="sendEmail()"
-        >Send your Message
+      <ion-button expand="block" (click)="sendEmail()"
+        >Send Message
       </ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>
 
 <style>
-    ion-button {
-      --color: white;
-    } 
+  ion-content {
+    height: 100vh;
+    width: 100%;
+    background-color: red;
+  }
+  ion-button {
+    --color: white;
+  }
 </style>
