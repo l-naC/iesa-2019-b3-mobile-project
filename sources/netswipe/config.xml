@@ -3,7 +3,7 @@
     <name>NETSWIPE</name>
     <description>Schedule message</description>
     <author email="contact@netswipe.fr" href="https://github.com/l-naC/iesa-2019-b3-mobile-project">NETSWIPE Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.15.21:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -97,4 +97,5 @@
     <plugin name="cordova-plugin-contacts" spec="3.0.1" />
     <allow-navigation href="http://192.168.15.193:8100" sessionid="8e01efb9" />
     <allow-navigation href="http://192.168.43.227:8100" sessionid="1a6ee6c3" />
+    <allow-navigation href="http://192.168.15.21:8100" sessionid="7b00e2b6" />
 </widget>

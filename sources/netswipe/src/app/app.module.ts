@@ -30,6 +30,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
 
 import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import { FormsModule } from '@angular/forms';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,6 +59,7 @@ import { FormsModule } from '@angular/forms';
     Badge,
     GoogleAnalytics,
     ScreenOrientation,
+    NativeStorage,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]

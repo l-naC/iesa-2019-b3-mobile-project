@@ -5,7 +5,6 @@ import { Storage } from '@ionic/storage';
 import { Media, MediaObject } from "@ionic-native/media/ngx";
 import { File} from "@ionic-native/file/ngx";
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { NavController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
@@ -15,6 +14,8 @@ import {
   BarcodeScannerOptions,
   BarcodeScanner
 } from "@ionic-native/barcode-scanner/ngx";
+import {Router} from '@angular/router';
+
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -38,11 +39,11 @@ export class Tab4Page{
   geoLongitude: number;
   geoAccuracy:number;
   geoAddress: string;
- 
-  watchLocationUpdates:any; 
+
+  watchLocationUpdates:any;
   loading:any;
   isWatching:boolean;
- 
+
   //Geocoder configuration
   geoencoderOptions: NativeGeocoderOptions = {
     useLocale: true,
@@ -55,7 +56,6 @@ export class Tab4Page{
 
   constructor(
     private camera: Camera,
-    public navCtrl: NavController,
     private mediaCapture: MediaCapture,
     private storage: Storage,
     private file: File,
@@ -65,7 +65,9 @@ export class Tab4Page{
     private emailComposer: EmailComposer,
     private ga: GoogleAnalytics,
     private screenOrientation: ScreenOrientation,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private router: Router
+
   ){
     this.encodeData = "https://www.FreakyJolly.com";
     //Options
@@ -75,6 +77,9 @@ export class Tab4Page{
     };
   }
 
+  settings() {
+    this.router.navigateByUrl('/tabs/tab5');
+  }
   //-------------------QR code scan---------------------------------
   scanCode() {
     this.barcodeScanner
@@ -87,7 +92,7 @@ export class Tab4Page{
         console.log("Error", err);
       });
   }
- 
+
   encodedText() {
     this.barcodeScanner
       .encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData)
@@ -101,7 +106,7 @@ export class Tab4Page{
         }
       );
   }
-  
+
   //-------------------END => QR code scan---------------------------------
 
 
@@ -109,8 +114,8 @@ export class Tab4Page{
   getGeolocation(){
     this.geolocation.getCurrentPosition().then((resp) => {
       this.geoLatitude = resp.coords.latitude;
-      this.geoLongitude = resp.coords.longitude; 
-      this.geoAccuracy = resp.coords.accuracy; 
+      this.geoLongitude = resp.coords.longitude;
+      this.geoAccuracy = resp.coords.accuracy;
       this.getGeoencoder(this.geoLatitude,this.geoLongitude);
      }).catch((error) => {
        alert('Error getting location'+ JSON.stringify(error));
@@ -150,7 +155,7 @@ export class Tab4Page{
     this.watchLocationUpdates = this.geolocation.watchPosition();
     this.watchLocationUpdates.subscribe((resp) => {
       this.geoLatitude = resp.coords.latitude;
-      this.geoLongitude = resp.coords.longitude; 
+      this.geoLongitude = resp.coords.longitude;
       this.getGeoencoder(this.geoLatitude,this.geoLongitude);
     });
   }
@@ -160,7 +165,7 @@ export class Tab4Page{
     this.isWatching = false;
     this.watchLocationUpdates.unsubscribe();
   }
-  
+
   takePicture() {
     const options: CameraOptions = {
       quality: 100,
@@ -197,9 +202,9 @@ export class Tab4Page{
       let fileName = capturedFile.name;
       let dir = capturedFile['localURL'].split('/');
       dir.pop();
-      let fromDirectory = dir.join('/');      
+      let fromDirectory = dir.join('/');
       var toDirectory = this.file.dataDirectory;
-    
+
       this.file.copyFile(fromDirectory , fileName , toDirectory , fileName).then((res) => {
         this.storeMediaFiles([{name: fileName, size: capturedFile.size}]);
       },err => {
@@ -234,7 +239,7 @@ export class Tab4Page{
       this.mediaFiles = this.mediaFiles.concat(files);
     })
   }
-  
+
 
   sendEmail() {
     this.emailComposer.isAvailable().then((available: boolean) =>{
@@ -242,7 +247,7 @@ export class Tab4Page{
         //Now we know we can send
       }
      });
-     
+
      let email = {
        to: this.to,
        cc: 'erika@mustermann.de',
@@ -257,7 +262,7 @@ export class Tab4Page{
        body: this.message,
        isHtml: true
      }
-     
+
      // Send a text message using default options
      this.emailComposer.open(email);
 
