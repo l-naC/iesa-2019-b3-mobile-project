@@ -166,13 +166,13 @@ export class Tab4Page{
   takePicture() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      saveToPhotoAlbum: true,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      destinationType: this.camera.DestinationType.FILE_URI
     }
 
     this.camera.getPicture(options).then((imageData) => {
-      this.currentImage = 'data:image/jpeg;base64,' + imageData;
+      this.currentImage = imageData;
     }, (err) => {
       // Handle error
       console.log("Camera issue:" + err);
@@ -188,40 +188,6 @@ export class Tab4Page{
 	    this.mediaCapture.captureAudio().then(res => {
 	      	this.storeMediaFiles(res);
 	    }, (err: CaptureError) => console.error(err));
-	}
-	captureVideo() {
-    let options: CaptureVideoOptions = {
-      limit: 1,
-      duration: 30
-    }
-    this.mediaCapture.captureVideo(options).then((res: MediaFile[]) => {
-      let capturedFile = res[0];
-      let fileName = capturedFile.name;
-      let dir = capturedFile['localURL'].split('/');
-      dir.pop();
-      let fromDirectory = dir.join('/');      
-      var toDirectory = this.file.dataDirectory;
-    
-      this.file.copyFile(fromDirectory , fileName , toDirectory , fileName).then((res) => {
-        this.storeMediaFiles([{name: fileName, size: capturedFile.size}]);
-      },err => {
-        console.log('err: ', err);
-      });
-    },
-    (err: CaptureError) => console.error(err));
-  	}
-
-  	play(myFile) {
-	    if (myFile.name.indexOf('.wav') > -1) {
-	      	const audioFile: MediaObject = this.media.create(myFile.localURL);
-	      	audioFile.play();
-	    } else {
-	      	let path = this.file.dataDirectory + myFile.name;
-	      	let url = path.replace(/^file:\/\//, '');
-	      	let video = this.myVideo.nativeElement;
-	      	video.src = url;
-	      	video.play();
-	    }
 	}
 
   storeMediaFiles(files) {
@@ -250,10 +216,7 @@ export class Tab4Page{
        cc: this.cc,
        bcc: this.bcc,
        attachments: [
-         'file://img/logo.png',
-         'res://icon.png',
-         'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
-         'file://README.pdf'
+         this.currentImage
        ],
        subject: this.subject,
        body: this.message,
