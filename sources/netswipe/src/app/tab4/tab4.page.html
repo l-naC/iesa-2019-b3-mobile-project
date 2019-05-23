@@ -1,98 +1,96 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      New message
-    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Write a message</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-row>
-    <ion-col>
-    <ion-button full (click)="captureAudio()">
-      <ion-icon name="microphone"></ion-icon>
-    </ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button full (click)="takePicture()">
-        <ion-icon name="camera"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button (click)="getGeolocation()">
-        <ion-icon name="map"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <!--- <ion-button (click)="watchLocation()">
-      Watch Location Updates
-    </ion-button>
-    <ion-button (click)="stopLocationWatch()">
-      Stop Location Watch
-    </ion-button>
-   -->
-  </ion-row>
-
   <ion-row>
     <div *ngIf="geoLatitude">
       <p class="address-text">
-   
         <span class="watch-text" *ngIf="isWatching; else notWatching">
           Watching Location
         </span>
-       <!--  <ng-template #notWatching>
+        <!--  <ng-template #notWatching>
           Location Watch Stopped
         </ng-template> -->
-   
-        <br>Address : {{geoAddress }}
+
+        <br />Address : {{ geoAddress }}
       </p>
     </div>
   </ion-row>
 
-
-
   <form>
-      <ion-row>
-        <ion-col><ion-label stacked>To</ion-label></ion-col>
-        <ion-col><ion-input [(ngModel)]="to" type="text" name="to" placeholder="To."></ion-input></ion-col>
-      </ion-row>
-    <ion-row>
-      <ion-col><ion-label stacked>Subject</ion-label></ion-col>
-      <ion-col><ion-input [(ngModel)]="subject" type="text" name="subject" placeholder="Type your subject."></ion-input></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col><ion-label stacked>Message</ion-label></ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-textarea [(ngModel)]="message" name="message" placeholder="Type your message." clearOnEdit="true"></ion-textarea>
-    </ion-row>
-    <ion-row>
-        <ion-col></ion-col>
-        <ion-col><ion-button full (click)="sendEmail()">Send</ion-button></ion-col>
-    </ion-row>
-  </form>
-	
+    <!-- Forms fields -->
+    <ion-item>
+      <ion-label position="stacked">Contact</ion-label>
+      <ion-input
+        [(ngModel)]="to"
+        mode="ios"
+        type="text"
+        name="to"
+        placeholder="Kayne West"
+        required="true"
+      ></ion-input>
+    </ion-item>
 
-  
+    <ion-item>
+      <ion-label position="stacked">Subject</ion-label>
+      <ion-input
+        [(ngModel)]="subject"
+        mode="ios"
+        size="4"
+        type="text"
+        name="subject"
+        placeholder="I'm in love with you"
+        required="true"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Message</ion-label>
+      <ion-textarea
+        [(ngModel)]="message"
+        clearOnEdit="true"
+        mode="ios"
+        name="message"
+        rows="4"
+        placeholder="I just want you to know. You are my crush"
+        required="true"
+      ></ion-textarea>
+    </ion-item>
+  </form>
 
   <ion-list>
-      <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
-          {{ file.name }}
-          <p>{{ file.size / 1000 / 1000 | number }} MB</p>
-      </ion-item>
+    <ion-item
+      *ngFor="let file of mediaFiles"
+      tappable
+      (click)="play(file)"
+      text-wrap
+    >
+      {{ file.name }}
+      <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+    </ion-item>
   </ion-list>
   <ion-row>
     <ion-button (click)="lockScreenOrientation()">Lock Orientation</ion-button>
-    <ion-button (click)="unlockScreenOrientation()">Unlock Orientation</ion-button>
+    <ion-button (click)="unlockScreenOrientation()"
+      >Unlock Orientation</ion-button
+    >
   </ion-row>
-  <img [src]="currentImage" *ngIf="currentImage">
-  
+  <img [src]="currentImage" *ngIf="currentImage" />
+
   <h1>Click Button To Scan</h1>
- 
+
   <ion-button (click)="scanCode()">
     Scan Code
   </ion-button>
- 
+
   <div *ngIf="scannedData">
     <p>
       Scanned Code Text : <b>{{ scannedData["text"] }}</b>
@@ -101,14 +99,60 @@
       Scanned Code Format : <b>{{ scannedData["format"] }}</b>
     </p>
   </div>
- 
+
   <h1>Enter Value to Create QR code</h1>
   <ion-input type="text" [(ngModel)]="encodedData"></ion-input>
- 
+
   <ion-button (click)="encodedText()">
     Create QR
   </ion-button>
-
- 
-
 </ion-content>
+
+<ion-footer>
+  <!-- Buttons options -->
+  <ion-row>
+    <ion-col>
+      <ion-button
+        color="light"
+        expand="full"
+        (click)="captureAudio()"
+        mode="ios"
+      >
+        <ion-icon name="microphone"></ion-icon
+      ></ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        color="light"
+        expand="full"
+        (click)="takePicture()"
+        mode="ios"
+      >
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        color="light"
+        mode="ios"
+        expand="full"
+        (click)="getGeolocation()"
+        ><ion-icon name="map"></ion-icon
+      ></ion-button>
+    </ion-col>
+  <!-- Submit Button -->
+    <ion-col>
+      <ion-button
+        expand="block"
+        (click)="sendEmail()"
+        >Send your Message
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+
+<style>
+    ion-button {
+      --color: white;
+    } 
+</style>

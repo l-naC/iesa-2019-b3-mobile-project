@@ -1,20 +1,45 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Programmed
-    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light">
+        <ion-icon
+          slot="icon-only"
+          name="settings"
+          (click)="presentModal()"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Programmed</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
+  <div class="center">
+    <ion-icon name="hourglass" size="large"></ion-icon>
+    <h3 color="light">Welcome to <strong>NETSWIPE</strong></h3>
+    <p>Programmez votre premier message en appuyant sur le bouton ci-dessous</p>
+    <ion-button href="/tabs/tab4">Schedule my message</ion-button>
+
+
+  </div>
 </ion-content>
+
+<style>
+  ion-button {
+    --color: white;
+  }
+  strong {
+    color: #1a5ef1;
+  }
+  .center {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+  }
+</style>
