@@ -17,7 +17,7 @@ import { Badge } from '@ionic-native/badge/ngx';
 
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
-import { File} from "@ionic-native/file/ngx";
+import { File } from "@ionic-native/file/ngx";
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -26,24 +26,41 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { NgCalendarModule } from 'ionic2-calendar';
+
+import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import { FormsModule } from '@angular/forms';
+
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    NgCalendarModule,
+    FormsModule
+
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     Contacts,
     Geolocation,
+    File,
     NativeGeocoder,
     MediaCapture,
     Media,
-    File,
+    BarcodeScanner,
     Badge,
     GoogleAnalytics,
     ScreenOrientation,
+    SocialSharing,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
