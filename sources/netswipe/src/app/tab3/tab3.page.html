@@ -1,43 +1,63 @@
 <ion-header>
     <ion-toolbar color="primary">
-      <ion-buttons slot="primary">
-        <ion-button color="light">
-          <ion-icon slot="icon-only" name="settings"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title color="light">Calendar</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button color="light" (click)="settings()">
+                <ion-icon slot="icon-only" name="settings"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="light">Calendar</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
 
 <ion-content>
-  <ion-buttons end>
-      <button ion-button [disabled]="isToday" (click)="today()">Today</button>
-      <button ion-button (click)="changeMode('month')">M</button>
-      <button ion-button (click)="changeMode('week')">W</button>
-      <button ion-button (click)="changeMode('day')">D</button>
-      <button ion-button (click)="loadEvents()">Load Events</button>
-  </ion-buttons>
-  <calendar
-    [eventSource]="eventSource"
-    [calendarMode]="calendar.mode"
-    [currentDate]="calendar.currentDate"
-    (EventSelected)="onEventSelected($event)"
-    (TitleChanged)="onViewTitleChanged($event)"
-    (TimeSelected)="onEventSelected($event)"
-    startHour="9"
-    endHour="20"
-    step="30"
-    startingDayWeek="1">
-  </calendar>
-  <div>
-      <h2>Partager sur Facebook</h2>
-      <ion-button expand="full" (click)="shareFacebook()">Partager sur Facebook</ion-button>
-  </div>
-  <ion-item>
-    <ion-label>Pending Messages</ion-label>
-    <ion-badge slot="end" color="danger">?</ion-badge>
-  </ion-item>
-  <ion-button expand="block" color="danger" (click)="this.badge.set(10)">Set badge number to 10</ion-button>
-  <ion-button expand="block" color="success" (click)="this.badge.increase(1)">Increase 1</ion-button>
-  <ion-button expand="block" color="warning" (click)="this.badge.clear()">Reset badge number</ion-button>
+    <ion-buttons end>
+        <button ion-button [disabled]="isToday" (click)="today()">Today</button>
+        <button ion-button (click)="changeMode('month')">M</button>
+        <button ion-button (click)="changeMode('week')">W</button>
+        <button ion-button (click)="changeMode('day')">D</button>
+        <button ion-button (click)="loadEvents()">Load Events</button>
+    </ion-buttons>
+    <calendar
+            [eventSource]="eventSource"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            (EventSelected)="onEventSelected($event)"
+            (TitleChanged)="onViewTitleChanged($event)"
+            (TimeSelected)="onEventSelected($event)"
+            startHour="9"
+            endHour="20"
+            step="30"
+            startingDayWeek="1">
+    </calendar>
+    <div>
+        <h2>Partager sur Facebook</h2>
+        <ion-button expand="full" (click)="shareFacebook()">Partager sur Facebook</ion-button>
+    </div>
+    <h1>Click Button To Scan</h1>
+
+    <ion-button (click)="scanCode()">
+        Scan Code
+    </ion-button>
+    <div *ngIf="scannedData">
+        <p>
+            Scanned Code Text : <b>{{ scannedData["text"] }}</b>
+        </p>
+        <p>
+            Scanned Code Format : <b>{{ scannedData["format"] }}</b>
+        </p>
+    </div>
+
+    <h1>Enter Value to Create QR code</h1>
+    <ion-input type="text" [(ngModel)]="encodedData"></ion-input>
+
+    <ion-button (click)="encodedText()">
+        Create QR
+    </ion-button>
+    <ion-item>
+        <ion-label>Pending Messages</ion-label>
+        <ion-badge slot="end" color="danger">?</ion-badge>
+    </ion-item>
+    <ion-button expand="block" color="danger" (click)="this.badge.set(10)">Set badge number to 10</ion-button>
+    <ion-button expand="block" color="success" (click)="this.badge.increase(1)">Increase 1</ion-button>
+    <ion-button expand="block" color="warning" (click)="this.badge.clear()">Reset badge number</ion-button>
 </ion-content>
