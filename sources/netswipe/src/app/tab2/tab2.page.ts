@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Contacts, ContactFieldType,  IContactFindOptions, Contact, ContactField, ContactName} from '@ionic-native/contacts';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -10,7 +11,11 @@ export class Tab2Page {
   ourtype: ContactFieldType[] = ['displayName'];
   contactsFound = [];
 
-  constructor(private contacts: Contacts) {
+  constructor(
+      private contacts: Contacts,
+      private router: Router
+
+  ) {
     this.search('');
   }
 
@@ -25,4 +30,8 @@ export class Tab2Page {
   onKeyUp(ev) {
     this.search(ev.target.value);
   }
+  settings() {
+    this.router.navigateByUrl('/tabs/tab5');
+  }
+
 }
