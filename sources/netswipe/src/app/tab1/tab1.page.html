@@ -1,32 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      Programmed
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="primary">
+        <ion-button color="light">
+          <ion-icon slot="icon-only" name="settings" (click)="presentModal()"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light">Programmed</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-select [(ngModel)]="language" (ionChange)="changeLanguage()">
-      <ion-select-option value="en" selected="true">English</ion-select-option>
-      <ion-select-option value="es">Spanish</ion-select-option>
-      <ion-select-option value="fr">French</ion-select-option>
-    </ion-select>
-  </ion-item>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-        <ion-col><ion-label stacked [translate]="'TITLE_2'">To</ion-label></ion-col>
-        <h1 [translate]="'TITLE_2'" [translateParams]="{value: 'John'}">TITLE</h1>
-        <p [translate]="'description'"></p>
-        <h1>{{name}}</h1>
-        <h1 translate [translateParams]="{name_value: 'John'}">data.name</h1>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
+
+  <p [translate]="'description'"></p>
+
 </ion-content>

@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 // import { Globalization } from '@ionic-native/globalization/ngx';
 
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private ga: GoogleAnalytics,
     // private globalization: Globalization
+    private nativeStorage: NativeStorage,
   ) {
     this.initializeApp();
   }

@@ -36,11 +36,23 @@ import {Globalization} from '@ionic-native/globalization/ngx';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+import { NgCalendarModule } from 'ionic2-calendar';
+
+import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import { FormsModule } from '@angular/forms';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(),
+  imports: [
+      BrowserModule,
+      IonicModule.forRoot(),
+      AppRoutingModule,
+      IonicStorageModule.forRoot(),
+      NgCalendarModule,
+      FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -59,11 +71,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     NativeGeocoder,
     MediaCapture,
     Media,
+    BarcodeScanner,
     File,
     Badge,
     GoogleAnalytics,
     ScreenOrientation,
     Globalization,
+    NativeStorage,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]

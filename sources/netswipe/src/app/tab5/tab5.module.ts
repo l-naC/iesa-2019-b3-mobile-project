@@ -3,18 +3,19 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
-import { NgCalendarModule } from 'ionic2-calendar';
-
+import { Tab5Page } from './tab5.page';
+import {NativeStorage} from '@ionic-native/native-storage/ngx';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }]),
-    NgCalendarModule
+    RouterModule.forChild([{ path: '', component: Tab5Page }])
   ],
-  declarations: [Tab3Page]
+  providers: [
+    NativeStorage,
+  ],
+  declarations: [Tab5Page]
 })
-export class Tab3PageModule {}
+export class Tab5PageModule {}
