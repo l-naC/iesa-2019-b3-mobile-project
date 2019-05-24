@@ -17,7 +17,7 @@ import { Badge } from '@ionic-native/badge/ngx';
 
 import { MediaCapture} from "@ionic-native/media-capture/ngx";
 import { Media} from "@ionic-native/media/ngx";
-import { File} from "@ionic-native/file/ngx";
+import { File } from "@ionic-native/file/ngx";
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -41,6 +41,9 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import { FormsModule } from '@angular/forms';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
+
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 @NgModule({
@@ -68,16 +71,17 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     Camera,
     Contacts,
     Geolocation,
+    File,
     NativeGeocoder,
     MediaCapture,
     Media,
     BarcodeScanner,
-    File,
     Badge,
     GoogleAnalytics,
     ScreenOrientation,
     Globalization,
     NativeStorage,
+    SocialSharing,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]

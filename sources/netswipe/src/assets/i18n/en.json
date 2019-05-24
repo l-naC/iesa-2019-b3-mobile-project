@@ -1,6 +1,7 @@
 {
-  "TITLE": "Hello sir",
-  "TITLE_2": "Hello {{value}}",
-  "description": "Ooohh .... did you just translate this text ?",
-  "data": {"name": "My name is {{name_value}}"}
+  "title"         : "Welcome to ",
+  "description"   : "Program your first message on the button below",
+  "buttonTitle"   : "Program my message"
 }
+
+

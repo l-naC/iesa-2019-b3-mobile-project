@@ -1,8 +1,5 @@
 {
-  "mail-recipient"         : "Bonjour Monsieur",
-  "mail-objet"         : "Bonjour Monsieur",
-  "mail-content"         : "Bonjour Monsieur",
-  "TITLE_2"       : "Bonjour {{value}}",
-  "description"   : "Ooohh .... vous venez de traduire ce texte?",
-  "data"          :{"name": "je m'appelle {{name_value}}"}
+  "title"         : "Bienvenue sur ",
+  "description"   : "Programmez votre premier message en appuyant sur le bouton ci-dessous",
+  "buttonTitle"   : "Programmez mon message"
 }

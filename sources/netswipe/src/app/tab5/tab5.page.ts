@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import {Globalization} from '@ionic-native/globalization/ngx';
+import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
 
 
 
@@ -11,19 +12,31 @@ import {Globalization} from '@ionic-native/globalization/ngx';
   styleUrls: ['tab5.page.scss']
 })
 export class Tab5Page {
-    public title: string;
-    public title_2: string;
-    public description: string;
-    public name: string;
     public language: string;
+    public screenLock: boolean;
     constructor(
 	    private nativeStorage: NativeStorage,
-        private _translate: TranslateService
-        ,
+        private _translate: TranslateService,
+        private screenOrientation: ScreenOrientation,
         private globalization: Globalization
     ) {
         this.initializeApp();
         this.getDeviceLanguage();
+        this.nativeStorage.getItem('screenLock')
+            .then(
+                data =>  {
+                    this.screenLock = data;
+                    if (data) {
+                        this.lockScreenOrientation();
+                    } else {
+                        this.unlockScreenOrientation();
+                    }
+                },
+                error => {
+                    console.error(error); this.screenLock = false;
+                        this.unlockScreenOrientation();
+                }
+            );
     }
 
     initializeApp() {
@@ -39,29 +52,6 @@ export class Tab5Page {
         this._initTranslate();
     }
 
-    _initialiseTranslation(): void {
-        // Get data with key 'TITLE'
-        this._translate.get('TITLE').subscribe((res: string) => {
-            console.log(res);
-            this.title = res;
-        });
-        // Get data with key 'description'
-        this._translate.get('description').subscribe((res: string) => {
-            console.log(res);
-            this.description = res;
-        });
-        // Get data with key 'TITLE_2' and `value` variable as 'John'
-        this._translate.get('TITLE_2', { value: 'John' }).subscribe((res: string) => {
-            console.log(res);
-            this.title_2 = res;
-        });
-        // Get data with nested key 'data.name' and `name_value` variable as 'Marissa Mayer'
-        this._translate.get('data.name', { name_value: 'Marissa Mayer' }).subscribe((res: string) => {
-            console.log(res);
-            this.name = res;
-        });
-    }
-
     public changeLanguage(): void {
         this._translateLanguage();
     }
@@ -70,7 +60,6 @@ export class Tab5Page {
         console.log('language', this.language);
         this.nativeStorage.setItem('language', this.language);
         this._translate.use(this.language);
-        this._initialiseTranslation();
     }
 
     _initTranslate() {
@@ -111,5 +100,28 @@ export class Tab5Page {
             this._initTranslate();
         })
             .catch(e => console.log(e));
+    }
+    changelock(event) {
+        console.log(event.detail.checked);
+        if (event.detail.checked) {
+            this.lockScreenOrientation();
+        } else {
+            this.unlockScreenOrientation();
+        }
+    }
+    async lockScreenOrientation() {
+        this.screenLock = true;
+        this.nativeStorage.setItem('screenLock', this.screenLock);
+        try{
+            this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+        } catch{
+            console.error("error lock");
+        }
+    }
+
+    unlockScreenOrientation() {
+        this.screenLock = false;
+        this.nativeStorage.setItem('screenLock', this.screenLock);
+        this.screenOrientation.unlock();
     }
 }

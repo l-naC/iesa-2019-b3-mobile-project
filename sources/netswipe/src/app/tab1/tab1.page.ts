@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {Globalization} from '@ionic-native/globalization/ngx';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tab1',
@@ -13,14 +14,16 @@ import {NativeStorage} from '@ionic-native/native-storage/ngx';
 export class Tab1Page {
     //local variables
     public title: string;
-    public title_2: string;
     public description: string;
+    public buttonTitle: string;
     public name: string;
     public language: string;
+
     constructor(
         private _translate: TranslateService,
         private globalization: Globalization,
         private nativeStorage: NativeStorage,
+        private router: Router,
 
 
     ) {
@@ -34,7 +37,7 @@ export class Tab1Page {
 
     _initialiseTranslation(): void {
         // Get data with key 'TITLE'
-        this._translate.get('TITLE').subscribe((res: string) => {
+        this._translate.get('title').subscribe((res: string) => {
             // console.log(res);
             this.title = res;
         });
@@ -44,14 +47,9 @@ export class Tab1Page {
             this.description = res;
         });
         // Get data with key 'TITLE_2' and `value` variable as 'John'
-        this._translate.get('TITLE_2', { value: 'John' }).subscribe((res: string) => {
+        this._translate.get('buttonTitle', { value: 'John' }).subscribe((res: string) => {
             // console.log(res);
-            this.title_2 = res;
-        });
-        // Get data with nested key 'data.name' and `name_value` variable as 'Marissa Mayer'
-        this._translate.get('data.name', { name_value: 'Marissa Mayer' }).subscribe((res: string) => {
-            // console.log(res);
-            this.name = res;
+            this.buttonTitle = res;
         });
     }
 
@@ -104,4 +102,8 @@ export class Tab1Page {
         })
             .catch(e => console.log(e));
     }
+    settings() {
+        this.router.navigateByUrl('/tabs/tab5');
+    }
+
 }

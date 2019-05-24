@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-toolbar color="primary">
-    <ion-title>sttings</ion-title>
+    <ion-title color="light">Settings</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -19,14 +19,9 @@
     </ion-item>
     <ion-item>
       <ion-label>loks orientation</ion-label>
-      <ion-toggle ></ion-toggle>
+      <ion-toggle [ngModel]='screenLock'
+                  (ionChange)='changelock($event)'></ion-toggle>
     </ion-item>
 
-<!--    <ion-item>-->
-<!--      <ion-label>Notifications for Invites</ion-label>-->
-<!--      <ion-toggle secondary-->
-<!--                  [ngModel]='preferences[PREF_NOTIFY_INVITES]'-->
-<!--                  (ionChange)='changePreference($event, PREF_NOTIFY_INVITES)'></ion-toggle>-->
-<!--    </ion-item>-->
   </ion-list>
 </ion-content>
