@@ -63,7 +63,7 @@
     "core-js": "^2.5.4",
     "es6-promise-plugin": "4.2.2",
     "ionic2-calendar": "^0.5.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "phonegap-plugin-barcodescanner": "8.0.1",
     "properties-parser": "^0.3.1",
     "rxjs": "~6.3.3",
